@@ -37,7 +37,7 @@ CREATE TABLE top_user_years_more_than_four_games (
 
 
 -- Select all information for the top ten best-selling games
--- Order the results from best-selling game down to tenth best-selling
+-- Order results from best-selling game down to tenth best-selling
 
 SELECT *
 FROM game_sales
@@ -46,7 +46,7 @@ LIMIT 10;
 
 -- Join games_sales and reviews
 -- Select a count of the number of games where both critic_score and user_score are null
-
+-- Make sure that the data does not have too many missing values 
 SELECT 
     count(g.game) 
 FROM game_sales AS g
@@ -55,9 +55,9 @@ ON g.game = r.game
 WHERE critic_score IS NULL AND user_score IS NULL;
 
 -- Select release year and average critic score for each year, rounded and aliased
--- Join the game_sales and reviews tables
+-- Join game_sales and reviews tables
 -- Group by release year
--- Order the data from highest to lowest avg_critic_score and limit to 10 results
+-- Order data from highest to lowest avg_critic_score and limit to 10 results
 
 SELECT 
     year,
